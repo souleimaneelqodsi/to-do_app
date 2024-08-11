@@ -1,2 +1,7 @@
-# to-do_app
-A simple and efficient To-Do app built with FlutterFlow using most of the available tools, as well as Firebase (for Auth &amp; DB)
+# To-Do App
+
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
