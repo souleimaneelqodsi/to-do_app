@@ -142,7 +142,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                         textInputAction: TextInputAction.next,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Email...',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -151,6 +150,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
+                                          hintText: 'Email...',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -250,7 +250,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                         obscureText:
                                             !_model.signupPasswordVisibility,
                                         decoration: InputDecoration(
-                                          labelText: 'Password...',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -259,6 +258,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
+                                          hintText: 'Password...',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -356,7 +356,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                         obscureText: !_model
                                             .signupConfirmPasswordVisibility,
                                         decoration: InputDecoration(
-                                          labelText: 'Confirm password...',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -365,6 +364,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
+                                          hintText: 'Confirm Password...',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -470,11 +470,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                           const Duration(milliseconds: 2000),
                                           () => setState(() {}),
                                         ),
-                                        autofocus: false,
+                                        autofocus: true,
                                         textInputAction: TextInputAction.next,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'Email...',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -483,6 +482,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
+                                          hintText: 'Email...',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -582,7 +582,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                         obscureText:
                                             !_model.loginPasswordVisibility,
                                         decoration: InputDecoration(
-                                          labelText: 'Password...',
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -591,6 +590,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
+                                          hintText: 'Password...',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
