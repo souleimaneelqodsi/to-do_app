@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/add_task/add_task_widget.dart';
 import '/components/task/task_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -41,8 +42,21 @@ class _TasksWidgetState extends State<TasksWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            print('FloatingActionButton pressed ...');
+          onPressed: () async {
+            await showModalBottomSheet(
+              isScrollControlled: true,
+              backgroundColor: Colors.transparent,
+              context: context,
+              builder: (context) {
+                return GestureDetector(
+                  onTap: () => FocusScope.of(context).unfocus(),
+                  child: Padding(
+                    padding: MediaQuery.viewInsetsOf(context),
+                    child: const AddTaskWidget(),
+                  ),
+                );
+              },
+            ).then((value) => safeSetState(() {}));
           },
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           elevation: 0.0,
