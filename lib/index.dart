@@ -1,4 +1,4 @@
 // Export pages
-export '/login/login_widget.dart' show LoginWidget;
-export '/tasks/tasks_widget.dart' show TasksWidget;
-export '/onboarding/onboarding_widget.dart' show OnboardingWidget;
+export '/pages/login/login_widget.dart' show LoginWidget;
+export '/pages/tasks/tasks_widget.dart' show TasksWidget;
+export '/pages/onboarding/onboarding_widget.dart' show OnboardingWidget;
