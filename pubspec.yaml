@@ -45,6 +45,7 @@ dependencies:
   firebase_storage: 11.7.5
   firebase_storage_platform_interface: 5.1.20
   firebase_storage_web: 3.9.5
+  floating_bottom_navigation_bar: 1.5.2
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.3.1
   flutter_plugin_android_lifecycle: 2.0.20
@@ -105,11 +106,24 @@ dependency_overrides:
   win32: 5.5.1
 
 dev_dependencies:
+  flutter_launcher_icons: 0.13.1
   flutter_lints: 4.0.0
+  image: 4.0.17
   lints: 4.0.0
 
   flutter_test:
     sdk: flutter
+
+
+flutter_launcher_icons:
+  android: 'launcher_icon'
+  ios: true
+  web:
+    generate: true
+  image_path: 'assets/images/app_launcher_icon.png'
+  adaptive_icon_background: '#e0e3e7'
+  adaptive_icon_foreground: 'assets/images/adaptive_foreground_icon.png'
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -58,7 +58,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'Profile',
+                        FFLocalizations.of(context).getText(
+                          '8g0ncvhp' /* Profile */,
+                        ),
                         style:
                             FlutterFlowTheme.of(context).headlineLarge.override(
                                   fontFamily: 'Inter',
@@ -188,7 +190,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                               ),
-                      hintText: 'Name...',
+                      hintText: FFLocalizations.of(context).getText(
+                        'lz0w3ghy' /* Name... */,
+                      ),
                       hintStyle:
                           FlutterFlowTheme.of(context).labelLarge.override(
                                 fontFamily: 'Inter',
@@ -295,7 +299,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         });
                       }
                     },
-                    text: 'Set Birthday',
+                    text: FFLocalizations.of(context).getText(
+                      'wa3rug27' /* Set Birthday */,
+                    ),
                     icon: const Icon(
                       Icons.calendar_today,
                       size: 15.0,
@@ -335,7 +341,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
 
                     context.goNamed('tasks');
                   },
-                  text: 'Complete Profile ',
+                  text: FFLocalizations.of(context).getText(
+                    '087nk81n' /* Complete Profile  */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 70.0,

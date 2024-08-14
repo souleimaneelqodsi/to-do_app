@@ -1,30 +1,29 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/add_task/add_task_widget.dart';
 import '/components/task/task_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'tasks_model.dart';
-export 'tasks_model.dart';
+import 'completed_model.dart';
+export 'completed_model.dart';
 
-class TasksWidget extends StatefulWidget {
+class CompletedWidget extends StatefulWidget {
   /// Page listing all the user's tasks.
-  const TasksWidget({super.key});
+  const CompletedWidget({super.key});
 
   @override
-  State<TasksWidget> createState() => _TasksWidgetState();
+  State<CompletedWidget> createState() => _CompletedWidgetState();
 }
 
-class _TasksWidgetState extends State<TasksWidget> {
-  late TasksModel _model;
+class _CompletedWidgetState extends State<CompletedWidget> {
+  late CompletedModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TasksModel());
+    _model = createModel(context, () => CompletedModel());
   }
 
   @override
@@ -41,43 +40,6 @@ class _TasksWidgetState extends State<TasksWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            await showModalBottomSheet(
-              isScrollControlled: true,
-              backgroundColor: Colors.transparent,
-              context: context,
-              builder: (context) {
-                return GestureDetector(
-                  onTap: () => FocusScope.of(context).unfocus(),
-                  child: Padding(
-                    padding: MediaQuery.viewInsetsOf(context),
-                    child: const AddTaskWidget(),
-                  ),
-                );
-              },
-            ).then((value) => safeSetState(() {}));
-          },
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          elevation: 0.0,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).primary,
-              borderRadius: BorderRadius.circular(50.0),
-              shape: BoxShape.rectangle,
-              border: Border.all(
-                width: 1.0,
-              ),
-            ),
-            child: Icon(
-              Icons.add,
-              color: FlutterFlowTheme.of(context).primaryText,
-              size: 30.0,
-            ),
-          ),
-        ),
         body: Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
           child: Column(
@@ -88,7 +50,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    'lpqb5mtq' /* Tasks */,
+                    'g49k1f75' /* Completed tasks */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Inter',
@@ -108,7 +70,7 @@ class _TasksWidgetState extends State<TasksWidget> {
                           )
                           .where(
                             'completed',
-                            isEqualTo: false,
+                            isEqualTo: true,
                           ),
                     ),
                     builder: (context, snapshot) {
@@ -137,40 +99,16 @@ class _TasksWidgetState extends State<TasksWidget> {
                         itemBuilder: (context, listViewIndex) {
                           final listViewTasksRecord =
                               listViewTasksRecordList[listViewIndex];
-                          return InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'details',
-                                queryParameters: {
-                                  'taskDoc': serializeParam(
-                                    listViewTasksRecord,
-                                    ParamType.Document,
-                                  ),
-                                  'taskDocRef': serializeParam(
-                                    listViewTasksRecord.reference,
-                                    ParamType.DocumentReference,
-                                  ),
-                                }.withoutNulls,
-                                extra: <String, dynamic>{
-                                  'taskDoc': listViewTasksRecord,
-                                },
-                              );
-                            },
-                            child: TaskWidget(
-                              key: Key(
-                                  'Keyivd_${listViewIndex}_of_${listViewTasksRecordList.length}'),
-                              completed: listViewTasksRecord.completed,
-                              taskText: valueOrDefault<String>(
-                                listViewTasksRecord.task,
-                                'Task',
-                              ),
-                              databaseReference: listViewTasksRecord.reference,
-                              completedPage: !true,
+                          return TaskWidget(
+                            key: Key(
+                                'Keywpj_${listViewIndex}_of_${listViewTasksRecordList.length}'),
+                            completed: listViewTasksRecord.completed,
+                            taskText: valueOrDefault<String>(
+                              listViewTasksRecord.task,
+                              'Task',
                             ),
+                            databaseReference: listViewTasksRecord.reference,
+                            completedPage: true,
                           );
                         },
                       );

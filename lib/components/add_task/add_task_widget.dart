@@ -86,7 +86,9 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
               ],
             ),
             Text(
-              'Add Task',
+              FFLocalizations.of(context).getText(
+                'll9mcemr' /* Add Task */,
+              ),
               style: FlutterFlowTheme.of(context).headlineLarge.override(
                     fontFamily: 'Inter',
                     letterSpacing: 0.0,
@@ -103,7 +105,9 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
                       fontSize: 18.0,
                       letterSpacing: 0.0,
                     ),
-                hintText: 'Title...',
+                hintText: FFLocalizations.of(context).getText(
+                  'k213qtnu' /* Title... */,
+                ),
                 hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                       fontFamily: 'Inter',
                       fontSize: 18.0,
@@ -158,7 +162,9 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
                       fontSize: 18.0,
                       letterSpacing: 0.0,
                     ),
-                hintText: 'Details...',
+                hintText: FFLocalizations.of(context).getText(
+                  'eq3gekb0' /* Details... */,
+                ),
                 hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
                       fontFamily: 'Inter',
                       fontSize: 18.0,
@@ -218,7 +224,9 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
                     ));
                 Navigator.pop(context);
               },
-              text: 'Add Task',
+              text: FFLocalizations.of(context).getText(
+                'q0g3ucqe' /* Add Task */,
+              ),
               icon: const Icon(
                 Icons.add,
                 size: 30.0,

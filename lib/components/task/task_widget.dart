@@ -12,11 +12,13 @@ class TaskWidget extends StatefulWidget {
     required this.completed,
     required this.taskText,
     required this.databaseReference,
+    required this.completedPage,
   });
 
   final bool? completed;
   final String? taskText;
   final DocumentReference? databaseReference;
+  final bool? completedPage;
 
   @override
   State<TaskWidget> createState() => _TaskWidgetState();
@@ -74,18 +76,19 @@ class _TaskWidgetState extends State<TaskWidget> {
                       FlutterFlowTheme.of(context).secondaryText,
                 ),
                 child: Checkbox(
-                  value: _model.checkboxValue ??= widget.completed!,
+                  value: _model.checkboxValue ??=
+                      widget.completedPage! ? true : !widget.completedPage!,
                   onChanged: (newValue) async {
                     setState(() => _model.checkboxValue = newValue!);
                     if (newValue!) {
                       await widget.databaseReference!
                           .update(createTasksRecordData(
-                        completed: true,
+                        completed: !widget.completed!,
                       ));
                     } else {
                       await widget.databaseReference!
                           .update(createTasksRecordData(
-                        completed: true,
+                        completed: !widget.completed!,
                       ));
                     }
                   },

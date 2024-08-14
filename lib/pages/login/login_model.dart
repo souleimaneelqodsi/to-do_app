@@ -19,7 +19,9 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   String? _signupEmailTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        '13d77tca' /* Field is required */,
+      );
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
@@ -37,7 +39,9 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   String? _signupPasswordTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'jc60gnne' /* Field is required */,
+      );
     }
 
     if (val.length < 7) {
@@ -56,7 +60,9 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   String? _signupConfirmPasswordTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        't4v5msxj' /* Field is required */,
+      );
     }
 
     if (val.length < 7) {
@@ -73,7 +79,9 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   String? _loginEmailTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'j4391osm' /* Field is required */,
+      );
     }
 
     if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
@@ -90,7 +98,9 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   String? _loginPasswordTextControllerValidator(
       BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'Field is required';
+      return FFLocalizations.of(context).getText(
+        'bm59ckqp' /* Field is required */,
+      );
     }
 
     return null;

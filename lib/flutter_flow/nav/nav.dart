@@ -2,11 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -72,13 +73,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const TasksWidget() : const LoginWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const TasksWidget() : const LoginWidget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
         ),
         FFRoute(
           name: 'login',
@@ -88,12 +89,59 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'tasks',
           path: '/tasks',
-          builder: (context, params) => const TasksWidget(),
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'tasks') : const TasksWidget(),
         ),
         FFRoute(
           name: 'onboarding',
           path: '/onboarding',
           builder: (context, params) => const OnboardingWidget(),
+        ),
+        FFRoute(
+          name: 'completed',
+          path: '/completed',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'completed')
+              : const CompletedWidget(),
+        ),
+        FFRoute(
+          name: 'details',
+          path: '/details',
+          asyncParams: {
+            'taskDoc': getDoc(['tasks'], TasksRecord.fromSnapshot),
+          },
+          builder: (context, params) => DetailsWidget(
+            taskDoc: params.getParam(
+              'taskDoc',
+              ParamType.Document,
+            ),
+            taskDocRef: params.getParam(
+              'taskDocRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['tasks'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'profile',
+          path: '/profile',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'profile')
+              : const NavBarPage(
+                  initialPage: 'profile',
+                  page: ProfileWidget(),
+                ),
+        ),
+        FFRoute(
+          name: 'onboarding1',
+          path: '/onboarding1',
+          builder: (context, params) => const Onboarding1Widget(),
+        ),
+        FFRoute(
+          name: 'forgotPassword',
+          path: '/forgotPassword',
+          builder: (context, params) => const ForgotPasswordWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -278,14 +326,13 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
+              ? Container(
+                  color: Colors.transparent,
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/logoTaskly.png',
+                      width: MediaQuery.sizeOf(context).width * 0.9,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 )

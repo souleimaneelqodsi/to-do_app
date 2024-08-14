@@ -75,7 +75,7 @@ class _LoginWidgetState extends State<LoginWidget>
                   borderRadius: BorderRadius.circular(18.0),
                   child: Image.asset(
                     'assets/images/logoTaskly.png',
-                    width: 120.0,
+                    width: 140.0,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -94,18 +94,22 @@ class _LoginWidgetState extends State<LoginWidget>
                               .headlineLarge
                               .override(
                                 fontFamily: 'Inter',
-                                fontSize: 26.0,
+                                fontSize: 20.0,
                                 letterSpacing: 0.0,
                               ),
                           unselectedLabelStyle: const TextStyle(),
                           indicatorColor: Colors.transparent,
                           padding: const EdgeInsets.all(4.0),
-                          tabs: const [
+                          tabs: [
                             Tab(
-                              text: 'Signup',
+                              text: FFLocalizations.of(context).getText(
+                                '9btt93g5' /* Signup */,
+                              ),
                             ),
                             Tab(
-                              text: 'Login',
+                              text: FFLocalizations.of(context).getText(
+                                'esmdgg24' /* Login */,
+                              ),
                             ),
                           ],
                           controller: _model.tabBarController,
@@ -150,7 +154,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
-                                          hintText: 'Email...',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'g54t0ark' /* Email... */,
+                                          ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -258,7 +265,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
-                                          hintText: 'Password...',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'p29ulo4q' /* Password... */,
+                                          ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -364,7 +374,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
-                                          hintText: 'Confirm Password...',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'uipfypl4' /* Confirm Password... */,
+                                          ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -482,7 +495,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
-                                          hintText: 'Email...',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'giee85kc' /* Email... */,
+                                          ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -590,7 +606,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                   ),
-                                          hintText: 'Password...',
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '9mvsl0hi' /* Password... */,
+                                          ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .labelLarge
@@ -673,6 +692,42 @@ class _LoginWidgetState extends State<LoginWidget>
                                       ),
                                     ),
                                   ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(1.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('forgotPassword');
+                                      },
+                                      child: Container(
+                                        width: 159.0,
+                                        height: 29.0,
+                                        decoration: const BoxDecoration(),
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: SelectionArea(
+                                            child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'e52o1b7e' /* Forgot your password? */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                letterSpacing: 0.0,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              ),
+                                        )),
+                                      ),
+                                    ),
+                                  ),
                                 ].divide(const SizedBox(height: 12.0)),
                               ),
                             ),
@@ -701,9 +756,11 @@ class _LoginWidgetState extends State<LoginWidget>
                             return;
                           }
 
-                          context.goNamedAuth('tasks', context.mounted);
+                          context.goNamedAuth('completed', context.mounted);
                         },
-                        text: 'Log In',
+                        text: FFLocalizations.of(context).getText(
+                          'x54kcmsj' /* Log In */,
+                        ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 70.0,
@@ -764,9 +821,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                 createdTime: getCurrentTimestamp,
                               ));
 
+                          await authManager.sendEmailVerification();
+
                           context.goNamedAuth('onboarding', context.mounted);
                         },
-                        text: 'Sign up',
+                        text: FFLocalizations.of(context).getText(
+                          'bpfmzgpb' /* Sign up */,
+                        ),
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 70.0,
