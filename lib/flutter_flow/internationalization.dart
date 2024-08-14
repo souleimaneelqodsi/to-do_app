@@ -275,34 +275,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Profil',
     },
   },
-  // onboarding1
-  {
-    'ef2mp9jy': {
-      'en': 'E-mail verification',
-      'fr': 'Vérification de l\'adresse mail',
-    },
-    'mocgg0u4': {
-      'en': 'Please enter the code we have sent you on your e-mail address',
-      'fr':
-          'Merci d\'entrer le code de vérification que nous vous avon envoyé par mail',
-    },
-    '3p252anw': {
-      'en': 'Verification code...',
-      'fr': 'Code de vérification...',
-    },
-    'f6qvz9vl': {
-      'en': '',
-      'fr': '',
-    },
-    'epmqeyrv': {
-      'en': 'Complete Profile',
-      'fr': 'Complétez votre profil',
-    },
-    '7j5s5cme': {
-      'en': 'Home',
-      'fr': '',
-    },
-  },
   // forgotPassword
   {
     'pbffokys': {

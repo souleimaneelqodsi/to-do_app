@@ -134,11 +134,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
         ),
         FFRoute(
-          name: 'onboarding1',
-          path: '/onboarding1',
-          builder: (context, params) => const Onboarding1Widget(),
-        ),
-        FFRoute(
           name: 'forgotPassword',
           path: '/forgotPassword',
           builder: (context, params) => const ForgotPasswordWidget(),

@@ -756,7 +756,7 @@ class _LoginWidgetState extends State<LoginWidget>
                             return;
                           }
 
-                          context.goNamedAuth('completed', context.mounted);
+                          context.goNamedAuth('tasks', context.mounted);
                         },
                         text: FFLocalizations.of(context).getText(
                           'x54kcmsj' /* Log In */,
