@@ -3,6 +3,12 @@ import 'login_widget.dart' show LoginWidget;
 import 'package:flutter/material.dart';
 
 class LoginModel extends FlutterFlowModel<LoginWidget> {
+  ///  Local state fields for this page.
+
+  bool authorizeLogin = false;
+
+  bool navigateToOnboarding = false;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey1 = GlobalKey<FormState>();

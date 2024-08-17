@@ -155,6 +155,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email...',
       'fr': 'E-mail...',
     },
+    'e74qckzz': {
+      'en': '',
+      'fr': '',
+    },
     '9mvsl0hi': {
       'en': 'Password...',
       'fr': 'Mot de passe...',
@@ -246,7 +250,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // profile
   {
-    'c8jbnqbo': {
+    'nydxv7b9': {
       'en': 'Profile',
       'fr': 'Profil',
     },
@@ -254,7 +258,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Tap to change your profile picture',
       'fr': 'Appuyez pour modifier la photo de profil',
     },
-    'rm0wkdx8': {
+    '6rtfusej': {
       'en': 'Name...',
       'fr': 'Nom...',
     },
@@ -262,15 +266,43 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Email Address',
       'fr': 'Adresse email',
     },
+    'x7tv7ujj': {
+      'en':
+          'Unverified email address.  Please open the verification link sent to you by email. You can also get a new one by ',
+      'fr':
+          'Adresse email non vérifiée. Merci d\'ouvrir le lien de vérification que nous vous avons envoyé par mail.  Vous pouvez également en obtenir un nouveau en ',
+    },
+    '502b15k8': {
+      'en': 'clicking here',
+      'fr': 'cliquant ici',
+    },
+    'dyb1w3wi': {
+      'en': '.',
+      'fr': '.',
+    },
+    'lvbcwmza': {
+      'en':
+          'Unverified email, please open the verification link sent by email.',
+      'fr':
+          'Adresse email non vérifiée. Merci d\'ouvrir le lien de vérification envoyé par email.',
+    },
     '66l0hhmo': {
-      'en': 'Change password',
+      'en': 'Change Password',
       'fr': 'Modifier le mot de passe',
     },
     'rvcmekgz': {
       'en': 'Update Profile',
       'fr': 'Mettre à jour le profil',
     },
-    '5g029rr7': {
+    'w9fslgue': {
+      'en': 'Log Out',
+      'fr': 'Se déconnecter',
+    },
+    'dnbej5t7': {
+      'en': 'Delete Account',
+      'fr': 'Supprimer mon compte',
+    },
+    'w8ld0ugn': {
       'en': 'Profile',
       'fr': 'Profil',
     },
@@ -342,6 +374,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Mettre à jour la tâche',
     },
   },
+  // verificationDialog
+  {
+    'xmxem879': {
+      'en': 'Email verification',
+      'fr': 'Vérification de l\'adresse e-mail',
+    },
+    '4q7ob4yn': {
+      'en':
+          'You need to confirm your email address before logging in. Please open the link we sent you by email. If it has expired or you didn\'t receive it correctly, you can get a new one by tapping the button below',
+      'fr':
+          'Vous devez confirmer votre adresse e-mail avant de vous connecter. Merci d\'ouvrir le lien qui vous a été envoyé par mail. Vous pouvez en obtenir un nouveau en appuyant sur le bouton ci-dessous.',
+    },
+    '9vhw87gd': {
+      'en': 'Resend email verification link',
+      'fr': 'Renvoyer un email de vérification',
+    },
+  },
   // Miscellaneous
   {
     'zdvy5ch1': {
@@ -405,9 +454,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fr': 'Cette adresse e-mail est déjà utilisée',
     },
     'pb0wjozf': {
-      'en': '',
+      'en':
+          'The supplied auth credential is incorrect, malinformed, has expired or you\'re using an unverified email address',
       'fr':
-          'L\'identifiant de connexion fourni est incorrect, mal renseigné ou a expiré',
+          'L\'identifiant de connexion fourni est incorrect, mal renseigné, a expiré ou vous êtes en train d\'utiliser une adresse mail non vérifiée',
     },
     'l16q3bj2': {
       'en': '',

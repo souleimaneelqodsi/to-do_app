@@ -49,14 +49,20 @@ class _DetailsWidgetState extends State<DetailsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-            child: wrapWithModel(
-              model: _model.detailsSheetModel,
-              updateCallback: () => setState(() {}),
-              child: DetailsSheetWidget(
-                taskDoc: widget.taskDoc!,
-                taskDocRef: widget.taskDocRef!,
+          child: Align(
+            alignment: const AlignmentDirectional(0.0, 0.0),
+            child: Container(
+              decoration: const BoxDecoration(),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                child: wrapWithModel(
+                  model: _model.detailsSheetModel,
+                  updateCallback: () => setState(() {}),
+                  child: DetailsSheetWidget(
+                    taskDoc: widget.taskDoc!,
+                    taskDocRef: widget.taskDocRef!,
+                  ),
+                ),
               ),
             ),
           ),

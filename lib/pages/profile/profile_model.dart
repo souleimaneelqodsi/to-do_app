@@ -5,16 +5,23 @@ import 'package:flutter/material.dart';
 class ProfileModel extends FlutterFlowModel<ProfileWidget> {
   ///  Local state fields for this page.
 
-  bool isBeingEdited = true;
+  bool isBeingEdited = false;
 
   bool isPasswordBeingEdited = true;
 
+  bool? hasVerifiedEmailLocalCopy;
+
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl1 = '';
+
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl2 = '';
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;

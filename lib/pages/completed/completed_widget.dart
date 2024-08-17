@@ -40,83 +40,94 @@ class _CompletedWidgetState extends State<CompletedWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 24.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    'g49k1f75' /* Completed tasks */,
-                  ),
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Inter',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                  child: StreamBuilder<List<TasksRecord>>(
-                    stream: queryTasksRecord(
-                      queryBuilder: (tasksRecord) => tasksRecord
-                          .where(
-                            'user',
-                            isEqualTo: currentUserReference,
-                          )
-                          .where(
-                            'completed',
-                            isEqualTo: true,
-                          ),
+        body: SafeArea(
+          top: true,
+          child: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 100.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 8.0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'g49k1f75' /* Completed tasks */,
                     ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
+                          fontFamily: 'Inter',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ),
+                Opacity(
+                  opacity: 0.5,
+                  child: Divider(
+                    thickness: 1.0,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    child: StreamBuilder<List<TasksRecord>>(
+                      stream: queryTasksRecord(
+                        queryBuilder: (tasksRecord) => tasksRecord
+                            .where(
+                              'user',
+                              isEqualTo: currentUserReference,
+                            )
+                            .where(
+                              'completed',
+                              isEqualTo: true,
+                            ),
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }
-                      List<TasksRecord> listViewTasksRecordList =
-                          snapshot.data!;
-
-                      return ListView.separated(
-                        padding: EdgeInsets.zero,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewTasksRecordList.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 12.0),
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewTasksRecord =
-                              listViewTasksRecordList[listViewIndex];
-                          return TaskWidget(
-                            key: Key(
-                                'Keywpj_${listViewIndex}_of_${listViewTasksRecordList.length}'),
-                            completed: listViewTasksRecord.completed,
-                            taskText: valueOrDefault<String>(
-                              listViewTasksRecord.task,
-                              'Task',
-                            ),
-                            databaseReference: listViewTasksRecord.reference,
-                            completedPage: true,
                           );
-                        },
-                      );
-                    },
+                        }
+                        List<TasksRecord> listViewTasksRecordList =
+                            snapshot.data!;
+
+                        return ListView.separated(
+                          padding: EdgeInsets.zero,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listViewTasksRecordList.length,
+                          separatorBuilder: (_, __) => const SizedBox(height: 12.0),
+                          itemBuilder: (context, listViewIndex) {
+                            final listViewTasksRecord =
+                                listViewTasksRecordList[listViewIndex];
+                            return TaskWidget(
+                              key: Key(
+                                  'Keywpj_${listViewIndex}_of_${listViewTasksRecordList.length}'),
+                              completed: listViewTasksRecord.completed,
+                              taskText: valueOrDefault<String>(
+                                listViewTasksRecord.task,
+                                'Task',
+                              ),
+                              databaseReference: listViewTasksRecord.reference,
+                              completedPage: true,
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

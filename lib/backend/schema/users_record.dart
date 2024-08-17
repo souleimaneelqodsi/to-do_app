@@ -50,6 +50,16 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get birthday => _birthday;
   bool hasBirthday() => _birthday != null;
 
+  // "firstLogin" field.
+  bool? _firstLogin;
+  bool get firstLogin => _firstLogin ?? false;
+  bool hasFirstLogin() => _firstLogin != null;
+
+  // "hasVerifiedEmail" field.
+  bool? _hasVerifiedEmail;
+  bool get hasVerifiedEmail => _hasVerifiedEmail ?? false;
+  bool hasHasVerifiedEmail() => _hasVerifiedEmail != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -58,6 +68,8 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _birthday = snapshotData['birthday'] as DateTime?;
+    _firstLogin = snapshotData['firstLogin'] as bool?;
+    _hasVerifiedEmail = snapshotData['hasVerifiedEmail'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -101,6 +113,8 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? createdTime,
   String? phoneNumber,
   DateTime? birthday,
+  bool? firstLogin,
+  bool? hasVerifiedEmail,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -111,6 +125,8 @@ Map<String, dynamic> createUsersRecordData({
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'birthday': birthday,
+      'firstLogin': firstLogin,
+      'hasVerifiedEmail': hasVerifiedEmail,
     }.withoutNulls,
   );
 
@@ -128,7 +144,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.birthday == e2?.birthday;
+        e1?.birthday == e2?.birthday &&
+        e1?.firstLogin == e2?.firstLogin &&
+        e1?.hasVerifiedEmail == e2?.hasVerifiedEmail;
   }
 
   @override
@@ -139,7 +157,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.uid,
         e?.createdTime,
         e?.phoneNumber,
-        e?.birthday
+        e?.birthday,
+        e?.firstLogin,
+        e?.hasVerifiedEmail
       ]);
 
   @override

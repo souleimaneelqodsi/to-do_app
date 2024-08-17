@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,6 +9,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'onboarding_model.dart';
 export 'onboarding_model.dart';
 
@@ -18,10 +20,13 @@ class OnboardingWidget extends StatefulWidget {
   State<OnboardingWidget> createState() => _OnboardingWidgetState();
 }
 
-class _OnboardingWidgetState extends State<OnboardingWidget> {
+class _OnboardingWidgetState extends State<OnboardingWidget>
+    with TickerProviderStateMixin {
   late OnboardingModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -30,6 +35,70 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 350.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 700.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-1.0, -1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -66,7 +135,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   fontFamily: 'Inter',
                                   letterSpacing: 0.0,
                                 ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation']!),
                     ],
                   ),
                   InkWell(
@@ -136,8 +206,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 0.0, 0.0),
                           child: Container(
-                            width: 68.0,
-                            height: 68.0,
+                            width: 100.0,
+                            height: 100.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -172,7 +242,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         ),
                       ],
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['stackOnPageLoadAnimation']!),
                   TextFormField(
                     controller: _model.textController,
                     focusNode: _model.textFieldFocusNode,
@@ -250,7 +321,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     keyboardType: TextInputType.name,
                     validator:
                         _model.textControllerValidator.asValidator(context),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textFieldOnPageLoadAnimation']!),
                   FFButtonWidget(
                     onPressed: () async {
                       final datePickedDate = await showDatePicker(
@@ -327,7 +399,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                       ),
                       borderRadius: BorderRadius.circular(24.0),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['buttonOnPageLoadAnimation1']!),
                 ].divide(const SizedBox(height: 24.0)),
               ),
               Align(
@@ -365,7 +438,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     ),
                     borderRadius: BorderRadius.circular(24.0),
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['buttonOnPageLoadAnimation2']!),
               ),
             ],
           ),

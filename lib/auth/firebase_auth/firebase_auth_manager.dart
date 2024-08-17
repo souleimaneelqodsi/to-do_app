@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../auth_manager.dart';
+import '../../flutter_flow/flutter_flow_util.dart';
 
 import '/backend/backend.dart';
 import 'anonymous_auth.dart';
@@ -292,8 +293,9 @@ class FirebaseAuthManager extends AuthManager
       final errorMsg = switch (e.code) {
         'email-already-in-use' =>
           'Error: The email is already in use by a different account',
-        'INVALID_LOGIN_CREDENTIALS' =>
-          'Error: The supplied auth credential is incorrect, malformed or has expired',
+        'INVALID_LOGIN_CREDENTIALS' => FFLocalizations.of(context).getText(
+            'pb0wjozf' /* The supplied auth credential i... */,
+          ),
         _ => 'Error: ${e.message!}',
       };
       ScaffoldMessenger.of(context).hideCurrentSnackBar();

@@ -65,40 +65,45 @@ class _TaskWidgetState extends State<TaskWidget> {
           child: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Theme(
-                data: ThemeData(
-                  checkboxTheme: const CheckboxThemeData(
-                    visualDensity: VisualDensity.compact,
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    shape: CircleBorder(),
+              Stack(
+                children: [
+                  Theme(
+                    data: ThemeData(
+                      checkboxTheme: const CheckboxThemeData(
+                        visualDensity: VisualDensity.compact,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: CircleBorder(),
+                      ),
+                      unselectedWidgetColor:
+                          FlutterFlowTheme.of(context).secondaryText,
+                    ),
+                    child: Checkbox(
+                      value: _model.checkboxValue ??= !(widget.completedPage!
+                          ? false
+                          : !widget.completedPage!),
+                      onChanged: (newValue) async {
+                        setState(() => _model.checkboxValue = newValue!);
+                        if (newValue!) {
+                          await widget.databaseReference!
+                              .update(createTasksRecordData(
+                            completed: !widget.completed!,
+                          ));
+                        } else {
+                          await widget.databaseReference!
+                              .update(createTasksRecordData(
+                            completed: !widget.completed!,
+                          ));
+                        }
+                      },
+                      side: BorderSide(
+                        width: 2,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                      ),
+                      activeColor: FlutterFlowTheme.of(context).primary,
+                      checkColor: FlutterFlowTheme.of(context).info,
+                    ),
                   ),
-                  unselectedWidgetColor:
-                      FlutterFlowTheme.of(context).secondaryText,
-                ),
-                child: Checkbox(
-                  value: _model.checkboxValue ??=
-                      widget.completedPage! ? true : !widget.completedPage!,
-                  onChanged: (newValue) async {
-                    setState(() => _model.checkboxValue = newValue!);
-                    if (newValue!) {
-                      await widget.databaseReference!
-                          .update(createTasksRecordData(
-                        completed: !widget.completed!,
-                      ));
-                    } else {
-                      await widget.databaseReference!
-                          .update(createTasksRecordData(
-                        completed: !widget.completed!,
-                      ));
-                    }
-                  },
-                  side: BorderSide(
-                    width: 2,
-                    color: FlutterFlowTheme.of(context).secondaryText,
-                  ),
-                  activeColor: FlutterFlowTheme.of(context).primary,
-                  checkColor: FlutterFlowTheme.of(context).info,
-                ),
+                ],
               ),
               Flexible(
                 child: Text(
