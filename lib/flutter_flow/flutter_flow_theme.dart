@@ -232,7 +232,7 @@ class ThemeTypography extends Typography {
   String get labelMediumFamily => 'Inter';
   TextStyle get labelMedium => GoogleFonts.getFont(
         'Inter',
-        color: theme.secondaryText,
+        color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
