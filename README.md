@@ -6,7 +6,7 @@ _Last Update : 08-18-2024_
 
 ## Overview
 
-Taskly is a simple yet effective to-do app designed to help users manage their tasks efficiently. This project was created by **Souleimane El Qodsi** in the context of learning **FlutterFlow** through a guided step-by-step tutorial. This app is purely fictional and was developed as an educational exercise. Taskly is open source and not subject to any copyright restrictions.
+Taskly is a simple yet effective to-do mobile app designed to help users manage their tasks efficiently. It is available for both **iOS** and **Android** platforms. This project was created by **Souleimane El Qodsi** using **FlutterFlow** in the context of learning the tool through a guided step-by-step tutorial. This app is purely fictional and was developed as an educational exercise. Any resemblance to real services or mobile applications would be purely coincidental. Taskly is open source and not subject to any copyright restrictions.
 
 ## Learning Context
 
